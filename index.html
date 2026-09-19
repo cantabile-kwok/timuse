@@ -23,7 +23,7 @@
       line-height: 1.55;
     }
     main {
-      max-width: 920px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 48px 20px 72px;
     }
@@ -67,11 +67,10 @@
       width: 100%;
       border-collapse: collapse;
       background: var(--card);
-      overflow: hidden;
       border: 1px solid var(--line);
     }
     th, td {
-      padding: 12px 10px;
+      padding: 14px 12px;
       border-bottom: 1px solid var(--line);
       text-align: left;
       vertical-align: middle;
@@ -83,14 +82,22 @@
       font-weight: 600;
     }
     tr:last-child td { border-bottom: none; }
-    .audio-slot {
-      min-width: 160px;
-      padding: 10px 12px;
-      border-radius: 8px;
-      background: var(--placeholder);
+    tbody tr:hover { background: #faf6ee; }
+    .sample-id {
       color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: 12px;
-      text-align: center;
+      white-space: nowrap;
+    }
+    audio {
+      display: block;
+      width: 100%;
+      min-width: 240px;
+      height: 34px;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 8px;
     }
     footer {
       margin-top: 36px;
@@ -98,63 +105,95 @@
       font-family: system-ui, -apple-system, sans-serif;
       font-size: 13px;
     }
+    @media (max-width: 720px) {
+      main { padding: 28px 12px 48px; }
+      h1 { font-size: 28px; }
+      th, td { padding: 10px 8px; }
+      audio { min-width: 220px; }
+    }
   </style>
 </head>
 <body>
   <main>
-    <div class="banner">GitHub Pages smoke test</div>
+    <div class="banner">Audio demo</div>
     <h1>TIMUSE</h1>
     <p class="subtitle">Text-Initialized Masked Semantic Token Modeling for Universal Speech Enhancement</p>
     <p>
-      This is a placeholder project page. Audio samples are not included yet;
-      the table below only shows where noisy / enhanced / clean clips will go.
+      Randomly selected examples from the URGENT 2026 test set. For each
+      utterance, compare the degraded input with the speech enhanced by TIMUSE.
     </p>
     <p class="note">
-      If you can read this at
-      <code>https://cantabile-kwok.github.io/timuse/</code>,
-      GitHub Pages is serving the <code>gh-pages</code> branch.
+      For a fair comparison, both columns use mono 24 kHz MP3 files encoded at
+      the same bitrate. Headphones are recommended.
     </p>
 
     <h2>Listening examples</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Condition</th>
-          <th>Noisy</th>
-          <th>TIMUSE</th>
-          <th>Clean</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Additive noise</td>
-          <td><div class="audio-slot">Audio placeholder</div></td>
-          <td><div class="audio-slot">Audio placeholder</div></td>
-          <td><div class="audio-slot">Audio placeholder</div></td>
-        </tr>
-        <tr>
-          <td>Reverberation</td>
-          <td><div class="audio-slot">Audio placeholder</div></td>
-          <td><div class="audio-slot">Audio placeholder</div></td>
-          <td><div class="audio-slot">Audio placeholder</div></td>
-        </tr>
-        <tr>
-          <td>Bandwidth limitation</td>
-          <td><div class="audio-slot">Audio placeholder</div></td>
-          <td><div class="audio-slot">Audio placeholder</div></td>
-          <td><div class="audio-slot">Audio placeholder</div></td>
-        </tr>
-        <tr>
-          <td>Clipping</td>
-          <td><div class="audio-slot">Audio placeholder</div></td>
-          <td><div class="audio-slot">Audio placeholder</div></td>
-          <td><div class="audio-slot">Audio placeholder</div></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Sample</th>
+            <th>Degraded input</th>
+            <th>TIMUSE enhanced</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="sample-id">fileid_336</td>
+            <td><audio controls preload="none" src="audio/noisy/fileid_336.mp3"></audio></td>
+            <td><audio controls preload="none" src="audio/timuse/fileid_336.mp3"></audio></td>
+          </tr>
+          <tr>
+            <td class="sample-id">fileid_361</td>
+            <td><audio controls preload="none" src="audio/noisy/fileid_361.mp3"></audio></td>
+            <td><audio controls preload="none" src="audio/timuse/fileid_361.mp3"></audio></td>
+          </tr>
+          <tr>
+            <td class="sample-id">fileid_370</td>
+            <td><audio controls preload="none" src="audio/noisy/fileid_370.mp3"></audio></td>
+            <td><audio controls preload="none" src="audio/timuse/fileid_370.mp3"></audio></td>
+          </tr>
+          <tr>
+            <td class="sample-id">fileid_430</td>
+            <td><audio controls preload="none" src="audio/noisy/fileid_430.mp3"></audio></td>
+            <td><audio controls preload="none" src="audio/timuse/fileid_430.mp3"></audio></td>
+          </tr>
+          <tr>
+            <td class="sample-id">fileid_539</td>
+            <td><audio controls preload="none" src="audio/noisy/fileid_539.mp3"></audio></td>
+            <td><audio controls preload="none" src="audio/timuse/fileid_539.mp3"></audio></td>
+          </tr>
+          <tr>
+            <td class="sample-id">fileid_628</td>
+            <td><audio controls preload="none" src="audio/noisy/fileid_628.mp3"></audio></td>
+            <td><audio controls preload="none" src="audio/timuse/fileid_628.mp3"></audio></td>
+          </tr>
+          <tr>
+            <td class="sample-id">fileid_712</td>
+            <td><audio controls preload="none" src="audio/noisy/fileid_712.mp3"></audio></td>
+            <td><audio controls preload="none" src="audio/timuse/fileid_712.mp3"></audio></td>
+          </tr>
+          <tr>
+            <td class="sample-id">fileid_775</td>
+            <td><audio controls preload="none" src="audio/noisy/fileid_775.mp3"></audio></td>
+            <td><audio controls preload="none" src="audio/timuse/fileid_775.mp3"></audio></td>
+          </tr>
+          <tr>
+            <td class="sample-id">fileid_805</td>
+            <td><audio controls preload="none" src="audio/noisy/fileid_805.mp3"></audio></td>
+            <td><audio controls preload="none" src="audio/timuse/fileid_805.mp3"></audio></td>
+          </tr>
+          <tr>
+            <td class="sample-id">fileid_990</td>
+            <td><audio controls preload="none" src="audio/noisy/fileid_990.mp3"></audio></td>
+            <td><audio controls preload="none" src="audio/timuse/fileid_990.mp3"></audio></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <footer>
-      ICASSP 2027 project page skeleton. No real audio files are hosted on this branch yet.
+      TIMUSE audio demo for ICASSP 2027.
     </footer>
   </main>
 </body>
