@@ -182,15 +182,15 @@
     </p>
     <p class="note">
       For a fair comparison, both columns use mono 24 kHz MP3 files encoded at
-      the same bitrate. Headphones are recommended. Spectrograms can be shown
-      with the switch below; the white line follows playback.
+      the same bitrate. Headphones are recommended. Mel spectrograms can be
+      shown with the switch below; the white line follows playback.
     </p>
 
     <div class="section-head">
       <h2>Listening examples</h2>
       <label class="spectrogram-toggle">
         <input id="spectrogram-toggle" type="checkbox">
-        Show spectrograms
+        Show Mel spectrograms
       </label>
     </div>
     <div class="table-wrap">
@@ -273,10 +273,10 @@
 
       const image = document.createElement("img");
       image.loading = "lazy";
-      image.alt = `Spectrogram for ${audio.src.split("/").pop()}`;
+      image.alt = `Mel spectrogram for ${audio.src.split("/").pop()}`;
       image.src = audio.getAttribute("src")
         .replace(/^audio\//, "spectrograms/")
-        .replace(/\.mp3$/, ".png");
+        .replace(/\.mp3$/, ".png") + "?v=mel1";
 
       const playhead = document.createElement("span");
       playhead.className = "spectrogram-playhead";
